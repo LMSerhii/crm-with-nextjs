@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 export enum Status {
   Active = 'active',
@@ -8,8 +8,7 @@ export enum Status {
   Suspended = 'suspended',
 }
 
-export interface StatusLabelProps {
-  children: React.ReactNode;
+export interface StatusLabelProps extends PropsWithChildren {
   status: Status;
   disabled?: boolean;
 }
