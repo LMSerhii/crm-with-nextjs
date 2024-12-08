@@ -7,11 +7,14 @@ export interface StatusLabelProps extends PropsWithChildren {
   disabled?: boolean;
 }
 
-export default function StatusLabel({
-  children,
-  status,
-  disabled,
-}: StatusLabelProps) {
+const labelByStatus = {
+  [CompanyStatus.Active]: 'Active',
+  [CompanyStatus.NotActive]: 'Not Active',
+  [CompanyStatus.Pending]: 'Pending',
+  [CompanyStatus.Suspended]: 'Suspended',
+};
+
+export default function StatusLabel({ status, disabled }: StatusLabelProps) {
   return (
     <div
       className={clsx(
@@ -23,8 +26,9 @@ export default function StatusLabel({
         { ['opacity-75 cursor-not-allowed']: disabled }
       )}
     >
-      <div className="w-1 h-1 mr-2 rounded-full bg-current"></div>
-      {children}
+      <div className="w-1 h-1 mr-2 rounded-full bg-current">
+        {labelByStatus[status]}
+      </div>
     </div>
   );
 }

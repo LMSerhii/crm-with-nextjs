@@ -36,7 +36,7 @@ export default function CompanyTable({}: CompanyTableProps) {
           </tr>
         </thead>
         <tbody>
-          {data?.map((company) => (
+          {data?.map(company => (
             <CompanyRow key={company.id} company={company} />
           ))}
         </tbody>
